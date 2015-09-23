@@ -22,7 +22,12 @@ class EDWIN():
 
     def run(self):
         while True:
-            question = raw_input("> ")
+            try:
+                question = raw_input("> ")
+            except EOFError:
+                print "\nExiting..."
+                sys.exit()
+
             try:
                 self.respond(question)
             except Exception:
