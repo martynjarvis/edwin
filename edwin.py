@@ -1,6 +1,9 @@
 import sys
 import traceback
 
+import responses
+
+
 class EDWIN():
     def __init__(self):
         self.responses = {}
@@ -21,6 +24,7 @@ class EDWIN():
                 "Response '{}' has not been registered".format(intent))
 
     def run(self):
+        responses.load_all()
         while True:
             try:
                 question = raw_input("> ")
